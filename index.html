@@ -28,7 +28,7 @@
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased min-h-screen flex flex-col justify-between">
 
-    <!-- Top Bar -->
+    <!-- Top Announcement Bar -->
     <div class="bg-gray-900 text-gray-200 text-xs py-2 px-4 text-center">
         <span>🎉 Free shipping on orders over ₹999 | Use code: <strong>MMB10</strong></span>
     </div>
@@ -100,7 +100,7 @@
             </section>
         </div>
 
-        <!-- ADMIN CMS VIEW (Hidden by default) -->
+        <!-- ADMIN CMS VIEW (Password Protected) -->
         <div id="view-admin" class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
             <div class="flex justify-between items-center mb-6 pb-4 border-b">
                 <div>
@@ -187,7 +187,7 @@
 
     <!-- About Us Modal -->
     <div id="about-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 hidden">
-        <div class="bg-white rounded-2xl max-w-lg w-full p-6 relative">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 relative shadow-2xl">
             <button onclick="closeModals()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600"><i data-lucide="x" class="w-5 h-5"></i></button>
             <h3 class="text-xl font-black mb-3">About MMB Fashions</h3>
             <p class="text-gray-600 text-sm leading-relaxed mb-4">MMB Fashions is your ultimate destination for stylish, modern, and premium apparel. We believe in high-quality fashion accessible to everyone, crafted with care and designed to make you stand out.</p>
@@ -197,14 +197,14 @@
 
     <!-- Contact Modal -->
     <div id="contact-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 hidden">
-        <div class="bg-white rounded-2xl max-w-lg w-full p-6 relative">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 relative shadow-2xl">
             <button onclick="closeModals()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600"><i data-lucide="x" class="w-5 h-5"></i></button>
             <h3 class="text-xl font-black mb-3">Contact Us</h3>
             <p class="text-gray-600 text-sm mb-4">Have questions regarding your order or sizing? Reach out to us directly:</p>
             <ul class="space-y-2 text-sm font-medium mb-4">
                 <li>📧 Email: support@mmbfashions.com</li>
                 <li>📞 Phone / WhatsApp: +91 98765 43210</li>
-                <li>📍 Location: Fashion Street, Coimbatore, India</li>
+                <li>📍 Location: Coimbatore, India</li>
             </ul>
             <button onclick="closeModals()" class="w-full bg-black text-white font-bold py-2 rounded-lg text-sm">Close</button>
         </div>
@@ -220,7 +220,6 @@
 
     <!-- Application Script Logic -->
     <script>
-        // Initial Default Products if none exist in localStorage
         const defaultProducts = [
             { id: 1, name: "Classic Linen Shirt", category: "Men", price: 1299, image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&q=80&w=600" },
             { id: 2, name: "Floral Summer Dress", category: "Women", price: 1799, image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&q=80&w=600" },
@@ -240,13 +239,11 @@
             localStorage.setItem('mmb_cart', JSON.stringify(cart));
         }
 
-        // Initialize Lucide icons
         window.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
             renderStore();
         });
 
-        // Switch Views (Shop vs Admin)
         function switchView(view) {
             document.getElementById('view-shop').classList.add('hidden');
             document.getElementById('view-admin').classList.add('hidden');
@@ -261,7 +258,6 @@
             lucide.createIcons();
         }
 
-        // Secure Admin Login Check
         function checkAdminAccess() {
             const pwd = prompt("Enter Admin Password to access CMS:");
             if (pwd === "admin123") {
@@ -271,16 +267,13 @@
             }
         }
 
-        // Render Shop Storefront
         function renderStore() {
-            // Render Filters
             const categories = ['All', ...new Set(products.map(p => p.category))];
             const filterContainer = document.getElementById('category-filters');
             filterContainer.innerHTML = categories.map(cat => `
                 <button onclick="filterCategory('${cat}')" class="filter-btn px-4 py-2 text-sm font-semibold rounded-lg transition ${currentFilter === cat ? 'bg-black text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}">${cat}</button>
             `).join('');
 
-            // Render Products
             const grid = document.getElementById('product-grid');
             const filtered = currentFilter === 'All' ? products : products.filter(p => p.category === currentFilter);
             
@@ -316,7 +309,6 @@
             renderStore();
         }
 
-        // Cart Management
         function addToCart(id) {
             const product = products.find(p => p.id === id);
             const existing = cart.find(item => item.id === id);
@@ -390,7 +382,6 @@
             window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
         }
 
-        // Admin CMS Functions
         function renderAdminTable() {
             const tbody = document.getElementById('admin-product-table');
             if (products.length === 0) {
@@ -445,7 +436,6 @@
             }
         }
 
-        // Modal Controls
         function openAboutModal() { document.getElementById('about-modal').classList.remove('hidden'); }
         function openContactModal() { document.getElementById('contact-modal').classList.remove('hidden'); }
         function closeModals() {
