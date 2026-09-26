@@ -45,13 +45,13 @@
             <!-- Desktop Nav Links -->
             <nav class="hidden md:flex items-center space-x-8 font-semibold text-sm text-slate-600">
                 <a href="#" onclick="navigateTo('shop')" class="hover:text-black transition">Home</a>
-                <a href="#shop-section" onclick="navigateTo('shop')" class="hover:text-black transition">Collection</a>
-                <a href="#" onclick="openModal('about-modal')" class="hover:text-black transition">About Us</a>
-                <a href="#" onclick="openModal('faq-modal')" class="hover:text-black transition">FAQ</a>
-                <a href="#" onclick="openModal('contact-modal')" class="hover:text-black transition">Contact</a>
+                <a href="#about-section" class="hover:text-black transition">About Us</a>
+                <a href="#shop-section" class="hover:text-black transition">Collection</a>
+                <a href="#faq-section" class="hover:text-black transition">FAQ</a>
+                <a href="#contact-footer" class="hover:text-black transition">Contact</a>
             </nav>
 
-            <!-- Action Controls (Cart only - Admin is completely hidden from public view) -->
+            <!-- Action Controls (Cart only - Admin hidden from public view) -->
             <div class="flex items-center space-x-3 sm:space-x-4">
                 <button onclick="toggleCartDrawer()" class="relative p-2.5 bg-slate-900 text-white hover:bg-slate-800 rounded-full transition shadow-sm">
                     <i data-lucide="shopping-bag" class="w-5 h-5"></i>
@@ -67,7 +67,7 @@
         <!-- SHOP VIEW -->
         <div id="view-shop">
             
-            <!-- Engaging Hero Banner Section -->
+            <!-- 1. Hero Banner / Slider Section -->
             <section class="relative bg-slate-900 text-white py-28 sm:py-36 px-4 sm:px-6 lg:px-8 overflow-hidden">
                 <div class="absolute inset-0 opacity-45 bg-cover bg-center mix-blend-luminosity scale-105 transform transition duration-1000" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=1600')"></div>
                 <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
@@ -78,7 +78,31 @@
                     <p class="text-slate-300 text-base sm:text-lg font-normal leading-relaxed">Discover hand-crafted apparel designed for trendsetters. Impeccable tailoring, unmatched comfort, and sustainable premium fabrics.</p>
                     <div class="flex flex-wrap gap-4 pt-4">
                         <a href="#shop-section" class="bg-white text-slate-900 font-extrabold px-8 py-4 rounded-xl hover:bg-slate-100 transition shadow-xl text-sm tracking-wide">Explore Collection</a>
-                        <button onclick="openModal('about-modal')" class="border border-white/40 text-white font-bold px-6 py-4 rounded-xl hover:bg-white/10 transition text-sm">Our Heritage</button>
+                        <a href="#about-section" class="border border-white/40 text-white font-bold px-6 py-4 rounded-xl hover:bg-white/10 transition text-sm text-center">Our Heritage</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. About Us Section (Placed immediately after the first slider) -->
+            <section id="about-section" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-slate-100">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <span class="text-xs font-bold uppercase tracking-widest text-red-600">Our Heritage & Story</span>
+                        <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Crafting Confidence Through Timeless Fashion</h2>
+                        <p class="text-slate-600 text-base leading-relaxed">Founded with a vision to merge modern minimalist street style with premium heritage craftsmanship, MMB Fashions curates collections that stand apart. Every thread is sourced sustainably, tested for absolute durability, and tailored precisely for your everyday confidence.</p>
+                        <div class="grid grid-cols-2 gap-6 pt-2">
+                            <div class="border-l-2 border-red-600 pl-4">
+                                <h3 class="font-black text-2xl text-slate-900">100%</h3>
+                                <p class="text-xs text-slate-500 mt-1">Sustainable premium fabrics</p>
+                            </div>
+                            <div class="border-l-2 border-red-600 pl-4">
+                                <h3 class="font-black text-2xl text-slate-900">10k+</h3>
+                                <p class="text-xs text-slate-500 mt-1">Happy trendsetting customers</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative h-96 rounded-2xl overflow-hidden shadow-xl bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800" alt="About MMB Fashions" class="w-full h-full object-cover">
                     </div>
                 </div>
             </section>
@@ -109,7 +133,7 @@
                 </div>
             </section>
 
-            <!-- Store Catalog Section -->
+            <!-- 3. Store Catalog Section -->
             <section id="shop-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-6">
                     <div>
@@ -151,6 +175,28 @@
                             <p class="text-sm text-slate-300 italic">"Super sleek interface and checking out straight through WhatsApp made placing custom sizing questions effortless."</p>
                             <p class="text-xs font-bold text-white">— Vikram K., Delhi</p>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section id="faq-section" class="max-w-4xl mx-auto px-4 py-16">
+                <div class="text-center mb-10">
+                    <span class="text-xs font-bold uppercase tracking-widest text-red-600">Help Center</span>
+                    <h2 class="text-3xl font-black text-slate-900 mt-1">Frequently Asked Questions</h2>
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <h3 class="font-bold text-slate-900 text-base">How long does shipping take?</h3>
+                        <p class="text-slate-600 text-sm mt-2">Standard orders ship within 24-48 hours and arrive across India in 3 to 5 business days.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <h3 class="font-bold text-slate-900 text-base">What is the return procedure?</h3>
+                        <p class="text-slate-600 text-sm mt-2">We offer a 7-day hassle-free exchange or return policy for unused products with original tags intact.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <h3 class="font-bold text-slate-900 text-base">Are custom uploads secure?</h3>
+                        <p class="text-slate-600 text-sm mt-2">Yes! All CMS modifications and uploads are saved locally right inside your trusted browser storage space.</p>
                     </div>
                 </div>
             </section>
@@ -253,60 +299,8 @@
         </div>
     </div>
 
-    <!-- About Us Modal Window -->
-    <div id="about-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm hidden">
-        <div class="bg-white rounded-2xl max-w-lg w-full p-8 relative shadow-2xl space-y-4">
-            <button onclick="closeModals()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-5 h-5"></i></button>
-            <span class="text-xs font-bold text-red-600 uppercase tracking-widest">Our Heritage</span>
-            <h3 class="text-2xl font-black text-slate-900">About MMB Fashions</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">Founded with a vision to merge modern minimalist street fashion with premium heritage craftsmanship, MMB Fashions curates collections that stand apart. Every thread is sourced sustainably, tested for absolute durability, and tailored precisely for your everyday confidence.</p>
-            <button onclick="closeModals()" class="w-full bg-black text-white font-bold py-3 rounded-xl text-sm mt-2">Got It</button>
-        </div>
-    </div>
-
-    <!-- FAQ Modal Window -->
-    <div id="faq-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm hidden">
-        <div class="bg-white rounded-2xl max-w-lg w-full p-8 relative shadow-2xl space-y-4 max-h-[85vh] overflow-y-auto">
-            <button onclick="closeModals()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-5 h-5"></i></button>
-            <span class="text-xs font-bold text-red-600 uppercase tracking-widest">Help Center</span>
-            <h3 class="text-2xl font-black text-slate-900 mb-2">Frequently Asked Questions</h3>
-            
-            <div class="space-y-3 text-sm">
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                    <h4 class="font-bold text-slate-900">How long does shipping take?</h4>
-                    <p class="text-slate-600 text-xs mt-1">Standard orders ship within 24-48 hours and arrive across India in 3 to 5 business days.</p>
-                </div>
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                    <h4 class="font-bold text-slate-900">What is the return procedure?</h4>
-                    <p class="text-slate-600 text-xs mt-1">We offer a 7-day hassle-free exchange or return policy for unused products with original tags intact.</p>
-                </div>
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                    <h4 class="font-bold text-slate-900">Are custom uploads secure?</h4>
-                    <p class="text-slate-600 text-xs mt-1">Yes! All CMS modifications and uploads are saved locally right inside your trusted browser storage space.</p>
-                </div>
-            </div>
-            <button onclick="closeModals()" class="w-full bg-black text-white font-bold py-3 rounded-xl text-sm mt-4">Close FAQ</button>
-        </div>
-    </div>
-
-    <!-- Contact Modal Window -->
-    <div id="contact-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm hidden">
-        <div class="bg-white rounded-2xl max-w-lg w-full p-8 relative shadow-2xl space-y-4">
-            <button onclick="closeModals()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-5 h-5"></i></button>
-            <span class="text-xs font-bold text-red-600 uppercase tracking-widest">Get in Touch</span>
-            <h3 class="text-2xl font-black text-slate-900">Contact Support</h3>
-            <p class="text-slate-600 text-sm">Have queries about sizing, custom bulk orders, or tracking? Reach out directly:</p>
-            <ul class="space-y-3 text-sm font-medium text-slate-700 bg-slate-50 p-5 rounded-xl border border-slate-100">
-                <li class="flex items-center gap-3"><i data-lucide="mail" class="w-4 h-4 text-red-600"></i> support@mmbfashions.com</li>
-                <li class="flex items-center gap-3"><i data-lucide="phone" class="w-4 h-4 text-red-600"></i> +91 98765 43210</li>
-                <li class="flex items-center gap-3"><i data-lucide="map-pin" class="w-4 h-4 text-red-600"></i> Fashion Avenue, Coimbatore, India</li>
-            </ul>
-            <button onclick="closeModals()" class="w-full bg-black text-white font-bold py-3 rounded-xl text-sm">Close</button>
-        </div>
-    </div>
-
-    <!-- Stunning Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-16 px-4 sm:px-6 lg:px-8 border-t border-slate-800 mt-20">
+    <!-- 4. Contact Section Integrated Directly in Footer -->
+    <footer id="contact-footer" class="bg-slate-900 text-slate-400 py-16 px-4 sm:px-6 lg:px-8 border-t border-slate-800 mt-20">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
             <div class="space-y-4">
                 <span class="text-xl font-black tracking-widest text-white flex items-center gap-2">
@@ -318,8 +312,8 @@
                 <h4 class="text-white font-bold text-sm mb-4">Quick Links</h4>
                 <ul class="space-y-2 text-xs font-medium">
                     <li><a href="#" onclick="navigateTo('shop')" class="hover:text-white transition">Featured Catalog</a></li>
-                    <li><a href="#" onclick="openModal('about-modal')" class="hover:text-white transition">Brand Story</a></li>
-                    <li><a href="#" onclick="openModal('faq-modal')" class="hover:text-white transition">Shipping & FAQ</a></li>
+                    <li><a href="#about-section" class="hover:text-white transition">Brand Story</a></li>
+                    <li><a href="#faq-section" class="hover:text-white transition">Shipping & FAQ</a></li>
                 </ul>
             </div>
             <div>
@@ -330,13 +324,14 @@
                     <li><a href="#shop-section" onclick="filterCategory('Accessories')" class="hover:text-white transition">Accessories</a></li>
                 </ul>
             </div>
-            <div>
-                <h4 class="text-white font-bold text-sm mb-4">Stay Updated</h4>
-                <p class="text-xs text-slate-400 mb-3">Subscribe to get secret discount vouchers and drop alerts.</p>
-                <div class="flex gap-2">
-                    <input type="email" placeholder="Your email address" class="bg-slate-800 border border-slate-700 text-xs px-3 py-2.5 rounded-xl text-white outline-none w-full">
-                    <button onclick="alert('Thank you for subscribing!')" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2.5 rounded-xl text-xs font-bold transition">Join</button>
-                </div>
+            <!-- Contact Details Embedded Here -->
+            <div class="space-y-3">
+                <h4 class="text-white font-bold text-sm mb-4">Contact Support</h4>
+                <ul class="space-y-2 text-xs text-slate-300">
+                    <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-red-500"></i> support@mmbfashions.com</li>
+                    <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-red-500"></i> +91 98765 43210</li>
+                    <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-red-500"></i> Coimbatore, India</li>
+                </ul>
             </div>
         </div>
         <div class="max-w-7xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
@@ -367,7 +362,6 @@
             localStorage.setItem('mmb_cart', JSON.stringify(cart));
         }
 
-        // Automatic URL Hash Routing on Load & Hash Changes
         window.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
             handleRouting();
@@ -411,7 +405,6 @@
                 document.getElementById('view-admin').classList.remove('hidden');
                 renderAdminTable();
             }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
             lucide.createIcons();
         }
 
@@ -584,16 +577,6 @@
                 saveProducts();
                 renderAdminTable();
             }
-        }
-
-        function openModal(modalId) {
-            document.getElementById(modalId).classList.remove('hidden');
-        }
-
-        function closeModals() {
-            document.getElementById('about-modal').classList.add('hidden');
-            document.getElementById('faq-modal').classList.add('hidden');
-            document.getElementById('contact-modal').classList.add('hidden');
         }
     </script>
 </body>
